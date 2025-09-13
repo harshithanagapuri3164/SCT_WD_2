@@ -1,0 +1,191 @@
+/* Stopwatch.css with Dark Mode */
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #7b2ff7, #00c6ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  transition: background 0.4s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f0f0f0;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+}
+
+.stopwatch-card {
+  background: #ffffffcc;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  padding: 30px;
+  max-width: 420px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, background 0.4s;
+}
+
+body.dark-mode .stopwatch-card {
+  background: #1e293bcc;
+}
+
+.stopwatch-card:hover {
+  transform: translateY(-5px);
+}
+
+.time-display {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  margin-bottom: 25px;
+  color: inherit;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  flex: 1;
+  min-width: 90px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.start {
+  background: linear-gradient(135deg, #28a745, #34d058);
+}
+
+.pause {
+  background: linear-gradient(135deg, #ffc107, #ffdd57);
+  color: #222;
+}
+
+.reset {
+  background: linear-gradient(135deg, #dc3545, #ff5c70);
+}
+
+.lap {
+  background: linear-gradient(135deg, #007bff, #00aaff);
+}
+
+/* Dark mode button */
+.toggle-dark-mode {
+  margin-top: 15px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.toggle-dark-mode:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.laps-container {
+  margin-top: 25px;
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #7b2ff7 #e0e0e0;
+}
+
+body.dark-mode .laps-container::-webkit-scrollbar-thumb {
+  background: #34d058;
+}
+
+.laps-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.laps-container::-webkit-scrollbar-thumb {
+  background: #7b2ff7;
+  border-radius: 6px;
+}
+
+.laps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lap-item {
+  background: #f9f9f9;
+  margin: 6px 0;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+body.dark-mode .lap-item {
+  background: #2d3748;
+  color: #f0f0f0;
+}
+
+.lap-item:hover {
+  transform: scale(1.02);
+}
+
+.lap-label {
+  font-weight: bold;
+  margin-right: 8px;
+  color: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .time-display {
+    font-size: 2.2rem;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
